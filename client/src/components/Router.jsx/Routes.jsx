@@ -1,6 +1,8 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { Questions } from '../Questions'
+import { StartGame } from '../StartGame'
+import { Results } from '../Results'
 
 
 export const Rutas = () => {
@@ -11,7 +13,9 @@ export const Rutas = () => {
             <div className='routes'>
                 <Routes>
 
-                    <Route path="/" element={<Questions />} />
+                    <Route path="/" element={<StartGame />} />
+                    <Route path="/start" element={<Questions />} />
+                    <Route path="/results" element={<Results />} />
 
 
                 </Routes>

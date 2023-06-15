@@ -1,6 +1,7 @@
-import './App.css';
-import { Home } from './components/Home';
-import { Routes, Rutas } from './components/Router.jsx/Routes';
+import '../src/css/App.css';
+import '../src/css/Questions.css';
+import '../src/css/Results.css';
+import { Rutas } from './components/Router.jsx/Routes';
 
 function App() {
   return (

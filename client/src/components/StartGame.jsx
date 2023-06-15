@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Questions } from './Questions';
+import { Home } from './Home';
 
 
 export const StartGame = () => {
@@ -7,21 +9,30 @@ export const StartGame = () => {
 
     const iniciarJuego = () => {
         setJuegoIniciado(true);
-        // Aquí puedes agregar la lógica para iniciar tu juego
     };
 
     return (
-        <div>
+        <div className='divPagPrincipal'>
+
             {juegoIniciado ? (
-                // Renderiza tu juego aquí una vez que se haya iniciado
                 <div>
-                    <h1>Juego iniciado</h1>
-                    {/* Agrega el contenido y la lógica de tu juego aquí */}
+                    <Questions />
                 </div>
             ) : (
-                // Renderiza el botón de inicio de juego
-                <button onClick={iniciarJuego}>Iniciar Juego</button>
+
+                <div>
+
+                    <Home />
+
+                    <div className='divBotonInicio'>
+
+                    <button onClick={iniciarJuego}>Iniciar Juego</button>
+                    
+                    </div>
+
+                </div>
             )}
+
         </div>
     );
 

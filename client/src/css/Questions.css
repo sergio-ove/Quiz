@@ -1,0 +1,36 @@
+.h2Preguntas{
+
+    margin-top: 5em;
+    font-size: 3em;
+}
+
+.divPreguntas{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divPreguntas button{
+    margin-left: 2em;
+    width: 20em;
+    height: 4em;
+}
+
+.divPreguntas button:focus{
+  color: black;
+  background-color: rgb(223, 121, 32);
+}
+
+.buttonComenzar{
+    text-align: center;
+    margin: 0 auto;
+    width: 30em;
+    height: 4em;
+    border-radius: 90px;
+}
+
+.divButComenzar{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10em;
+}
+
