@@ -8,15 +8,21 @@ export const Results = () => {
 
 
 
+
+
   return (
     <div className='divResultados'>
 
       <p className='presultados1'>Has acertado:</p>
 
-      <p className='presultados2'>{puntuacionLocal} Preguntas</p>
+      <p className='presultados2'>{puntuacionLocal}/10 Preguntas</p>
 
-      <li><Link to='/'>Volver a jugar</Link></li>
-      
+      <div className='divButton'>
+
+        <button className='butReinicio'><Link to='/'>Volver a jugar</Link></button>
+
       </div>
+
+    </div>
   )
 }

@@ -1,18 +1,38 @@
-.divResultados{
+.divResultados {
     margin: 0 auto;
     text-align: center;
-    margin-top: 20em;
     width: 100%;
 }
 
-.presultados1{
+.presultados1 {
     font-size: 6em;
 }
 
-.presultados2{
+.presultados2 {
     font-size: 4em;
-    background-color:rgb(223, 121, 32);
     width: 20%;
-   margin: 0 auto;
-   color: white;
+    margin: 0 auto;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.butReinicio {
+    margin: 0 auto;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 70px;
+    border: black;
+    padding: 5px;
+}
+
+.butReinicio:hover {
+    background-color: black;
+    color: white;
+}
+
+
+a {
+    text-decoration: none;
 }

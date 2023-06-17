@@ -3,6 +3,7 @@ import { Questions } from './Questions';
 import { Home } from './Home';
 
 
+
 export const StartGame = () => {
 
     const [juegoIniciado, setJuegoIniciado] = useState(false);
@@ -26,8 +27,13 @@ export const StartGame = () => {
 
                     <div className='divBotonInicio'>
 
-                    <button onClick={iniciarJuego}>Iniciar Juego</button>
-                    
+
+                        <div className='divButton'>
+
+                            <button onClick={iniciarJuego}>START</button>
+
+                        </div>
+
                     </div>
 
                 </div>
