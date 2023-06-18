@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
 
 
 export const Questions = () => {
@@ -59,26 +59,27 @@ export const Questions = () => {
     }
 
 
-
-
     const resultado = miObjeto(contenidoQuiz, 'incorrectAnswers', 'correctAnswer', 'question');
-
-    console.log(resultado);
 
     const objeto = miObjetoModificado(resultado)
 
-    console.log(objeto);
-
     const objetoFinal = objetoConRespuestasAleatorias(objeto)
-
-    console.log(objetoFinal);
 
     //Obtenemos todas las respuestas correctas y las guardamos en una variable para que nos sea más cómodo compararlo luego con las respuestas del usuario.
     const arrayCorrectas = objeto.map((respuestas) => (
         respuestas.respuestasCorrectas
     ))
 
-    console.log(arrayCorrectas);
+    console.log(resultado);
+
+    //Obtenemos pregunta y respuesta correcta para mostarlo en la pantalla final
+    const preguntaYacierto = resultado.map((opciones) => (
+        [opciones.pregunta.text] + " - " + [opciones.respuestasCorrectas]
+    ))
+
+    localStorage.setItem('mostarResultados', JSON.stringify(preguntaYacierto))
+
+    console.log(preguntaYacierto);
 
 
     //Generamos la lógica para ir pasando de una pregunta a otra
@@ -99,8 +100,6 @@ export const Questions = () => {
     const seleccionarRespuesta = (respuesta) => {
 
         const nuevasRespuestas = [...respuestasSeleccionadas];
-        // nuevasRespuestas[indicePregunta] = respuesta;
-        // setRespuestasSeleccionadas(nuevasRespuestas)
 
         const respuestasLocal = localStorage.getItem('respuestas');
 
@@ -129,12 +128,26 @@ export const Questions = () => {
 
         const array = []
 
+        const arrayLocalAciertos = []
+
         const arrayLocal = JSON.parse(localStorage.getItem('respuestas'))
+
+        //Comprobamos las guardadas en el local con las correctas y las guardamos en el local a parte para usarlas en la pantalla de resultados.
+        for (let i = 0; i < arrayCorrectas.length; i++) {
+            for (let j = 0; j < arrayLocal.length; j++) {
+                console.log(arrayLocal[i]);
+                if (arrayCorrectas[i] == arrayLocal[j]) {
+                    arrayLocalAciertos.push(arrayLocal[i])
+                    localStorage.setItem('correctas', JSON.stringify(arrayLocalAciertos))
+                }
+            }
+        }
 
         const coincicidencias = arrayLocal.map((respuesta) =>
             arrayCorrectas.includes(respuesta)
         )
 
+        console.log(coincicidencias);
 
         for (let i = 0; i < coincicidencias.length; i++) {
             if (coincicidencias[i] == true) {
@@ -142,16 +155,9 @@ export const Questions = () => {
             }
         }
 
-       const datosLocal = localStorage.setItem('aciertos', JSON.stringify(array))
+        const datosLocal = localStorage.setItem('aciertos', JSON.stringify(array))
     }
 
-
-
-    // const volverAjugar = () =>{
-    //     localStorage.removeItem('aciertos')
-    //     localStorage.removeItem('respuestas')
-    //     navigate('/results');
-    // }
 
 
 
