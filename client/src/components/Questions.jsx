@@ -7,10 +7,9 @@ export const Questions = () => {
     const [indicePregunta, setIndicePregunta] = useState(0);
     const [respuestasSeleccionadas, setRespuestasSeleccionadas] = useState([]);
     const [contador, setContador] = useState(false)
-    const [aciertos, setAciertos] = useState(0)
-    const [respuestas, setRespuestas] = useState([]);
     const [preguntas, setPreguntas] = useState([]);
     const [pasarPregunta, setPasarPregunta] = useState(false);
+    const [aciertos, setAciertos] = useState(0);
 
 
     const navigate = useNavigate();
@@ -59,6 +58,9 @@ export const Questions = () => {
         }))
     }
 
+
+
+
     const resultado = miObjeto(contenidoQuiz, 'incorrectAnswers', 'correctAnswer', 'question');
 
     console.log(resultado);
@@ -71,6 +73,13 @@ export const Questions = () => {
 
     console.log(objetoFinal);
 
+    //Obtenemos todas las respuestas correctas y las guardamos en una variable para que nos sea más cómodo compararlo luego con las respuestas del usuario.
+    const arrayCorrectas = objeto.map((respuestas) => (
+        respuestas.respuestasCorrectas
+    ))
+
+    console.log(arrayCorrectas);
+
 
     //Generamos la lógica para ir pasando de una pregunta a otra
     const siguientePregunta = () => {
@@ -81,6 +90,7 @@ export const Questions = () => {
             setPasarPregunta(true);
         } else {
             setContador(true)
+            comprobar()
             navigate('/results');
         }
     };
@@ -89,8 +99,8 @@ export const Questions = () => {
     const seleccionarRespuesta = (respuesta) => {
 
         const nuevasRespuestas = [...respuestasSeleccionadas];
-        nuevasRespuestas[indicePregunta] = respuesta;
-        setRespuestasSeleccionadas(nuevasRespuestas)
+        // nuevasRespuestas[indicePregunta] = respuesta;
+        // setRespuestasSeleccionadas(nuevasRespuestas)
 
         const respuestasLocal = localStorage.getItem('respuestas');
 
@@ -114,22 +124,34 @@ export const Questions = () => {
     console.log(respuestasSeleccionadas);
 
 
-    //Comprobamos las respuestas que marca el usuario con el array de respuestas correctas para saber el sumatorio de las correctas.
-    const comprobarRespuestas = () => {
+    //Comprobamos las respuestas que marca el usuario con el array de respuestas correctas para saber el sumatorio de las correctas y las guardamos en el localStorage
+    const comprobar = () => {
 
-        const datosLocal = localStorage.getItem('respuestas')
+        const array = []
 
-        // const coincidenTodas = respuestas.map((pregunta) =>
+        const arrayLocal = JSON.parse(localStorage.getItem('respuestas'))
 
-        //     respuestasCorrectas.includes(pregunta)
-        // );
-
-        // const correctas = objetoFinal.map((opciones) => (
-        //     opciones.respuestasCorrectas
-        // ))
+        const coincicidencias = arrayLocal.map((respuesta) =>
+            arrayCorrectas.includes(respuesta)
+        )
 
 
-    };
+        for (let i = 0; i < coincicidencias.length; i++) {
+            if (coincicidencias[i] == true) {
+                array.push(coincicidencias[i])
+            }
+        }
+
+       const datosLocal = localStorage.setItem('aciertos', JSON.stringify(array))
+    }
+
+
+
+    // const volverAjugar = () =>{
+    //     localStorage.removeItem('aciertos')
+    //     localStorage.removeItem('respuestas')
+    //     navigate('/results');
+    // }
 
 
 
