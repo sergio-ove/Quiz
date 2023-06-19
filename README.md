@@ -1,6 +1,6 @@
 # Proyecto QUIZ
-<h1 align="center">Proyecto de preguntas y respuestas múltiples realizado con React.</h1>
-<h1 align="center">Se recoge la información de una api externa llamada : THE TRIVIA API (https://the-trivia-api.com)</h1>
+<p align="center">Proyecto de preguntas y respuestas múltiples realizado con React.</p>
+<p align="center">Se recoge la información de una api externa llamada : THE TRIVIA API (https://the-trivia-api.com)</p>
 ## Herramientas utilizadas:
 - Variables
 - Bucles
