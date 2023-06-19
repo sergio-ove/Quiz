@@ -4,21 +4,21 @@
 }
 
 .divPreguntas{
-    margin: 0 auto;
     text-align: center;
 }
 
-.divPreguntas button{
-    margin-left: 2em;
-    width: 20em;
-    height: 4em;
-    background-color: black;
-    color: rgb(73, 168, 160);
-    font-size: 17px;
+.butRespuestaMul{
+    width: 40em;
+    height: 5em;
+    background-color: #6e7154;
+    color: black;
+    font-size: 19px;
     border: solid 3px white;
+    margin-bottom: 6px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.divPreguntas button:focus{
+.butRespuestaMul:focus{
   color: black;
   background-color: rgb(73, 168, 160);
 }
@@ -26,11 +26,14 @@
 .buttonComenzar{
     text-align: center;
     margin: 0 auto;
-    width: 30em;
-    height: 4em;
+    width: 45em;
+    height: 5em;
     border-radius: 90px;
-    background-color: white;
-    border: 3px solid black;
+    background-color: #532a24;
+    border: 3px solid rgb(214, 212, 212);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
 }
 
 

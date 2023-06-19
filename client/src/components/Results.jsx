@@ -11,7 +11,7 @@ export const Results = () => {
 
   const resultados = JSON.parse((localStorage.getItem('mostarResultados')))
 
-  const acertadas =  JSON.parse((localStorage.getItem('correctas')))
+  const acertadas = JSON.parse((localStorage.getItem('correctas')))
 
   console.log(resultados);
 
@@ -21,6 +21,8 @@ export const Results = () => {
     localStorage.removeItem('respuestas')
     localStorage.removeItem('correctas')
   }
+
+
 
 
   return (
@@ -36,25 +38,28 @@ export const Results = () => {
 
       </div>
 
-        <div>
+      <div className='divCajaRespuestas'>
+
+        <div className='div10'>
 
           <h2>Solución 10 preguntas</h2>
-          {resultados && resultados.map((resultados) =>(
-           <p>{resultados}</p>
+          {resultados && resultados.map((resultados) => (
+            <p className='p10Preguntas'>{resultados}</p>
           ))}
 
 
         </div>
 
-        <div>
-            <h2>Tus respuestas correctas</h2>
-            {acertadas && acertadas.map((opciones) =>(
-              <p>{opciones}</p>
-            ))}
+        <div className='divResCorrectas'>
 
-
+          <h2>Tus respuestas correctas</h2>
+          {acertadas && acertadas.map((opciones) => (
+            <p className='p10Preguntas'>{opciones}</p>
+          ))}
 
         </div>
+
+      </div>
 
     </div>
   )
